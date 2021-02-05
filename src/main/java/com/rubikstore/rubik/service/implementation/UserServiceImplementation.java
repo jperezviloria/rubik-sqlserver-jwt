@@ -16,7 +16,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepository.getAllUsersDb();
     }
 
     @Override
@@ -26,6 +26,11 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public String saveUser(User user) {
-        return null;
+        userRepository.saveUser(
+                user.getUsername(),
+                user.getPassword(),
+                user.getEmailUser(),
+                user.getAgeUser());
+        return "user was saved";
     }
 }
